@@ -1,20 +1,3 @@
 [
-    {
-        "nome": "João Bosco Júnior",
-        "idade": 17,
-        "login": "jb",
-        "senha": "jj"
-    },
-    {
-        "nome": "Lionel Messi",
-        "idade": 23,
-        "login": "barcelona",
-        "senha": "thebestplus"
-    },
-    {
-        "nome": "Cristiano Ronaldo",
-        "idade": 25,
-        "login": "realmadrid",
-        "senha": "thebest"
-    }
+    
 ]
