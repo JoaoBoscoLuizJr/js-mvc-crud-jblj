@@ -6,15 +6,14 @@ const dataService = {
             return data;
         } catch (error) {
             console.log("Error fetching data:", error)
-            return[]
+            return []
         }
     },
-    salvarDados: async (novosDados) =>{
-    }
-    const response = await fetch('http://localhost:7000?api/save',{
+    salvarDados: async (novosDados) => {
+        try {
+            const response = await fetch('http://localhost:7000?api/save',)
+        }
 
-    })
-
-};
+}
 
 export { dataService };
