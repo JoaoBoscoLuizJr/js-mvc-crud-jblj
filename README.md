@@ -8,6 +8,10 @@ Here I'm exploring more about MVC desing pattern and CRUD in JavaScript.
 
 ### Instructions for running the project
 
-1. The most common way to run a ([Node.js]) is by executing the globally available node command (once Node. js is installed) and passing the desired file name. While running the command, make sure you are in the same directory that contains the app.
+1. The most common way to run a Node.js is by executing the globally available node command (once Node. js is installed) and passing the desired file name. While running the command, make sure you are in the same directory that contains the app.
 
-2. 
+2. Create a folder named BACKEND with the contents of your project's backend
+
+3. Install the necessary packages for the project to progress "nmp install"
+
+3.then start "npm start"
