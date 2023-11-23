@@ -46,51 +46,52 @@ const deletUser = (index) => {
 };
 //FIM FUNÇÕES CRUD
 
-
-//AÇÃO PARA BOTÃO ESQUERDO
-const clickEsquerdo = (event) => {
+const handleClick = (event) => {
   currentId = event.target.closest("tr").id.split("")[4];
-  const confimarEditar = window.confirm(
-    `Clicou com o botão esquerdo, e o ${data[currentId]
-      .getNome()
-      .toUpperCase()} será carregado para edição`
-  );
-
-  if (confimarEditar) {
-    viewController.updateForm(data[currentId])
-    submitState = submitType.UPDATE;
-    btnSub.innerText = "Update";
-  }
-
-};
-//AÇÃO PARA BOTÃO DIREITO
-const clickDireito = (event) => {
-  event.preventDefault();
-  if (event.button == 2) {
-    currentId = event.target.closest("tr").id.split("")[4];
-    const confirmarDelecao = window.confirm(
-      `Clicou com o botão direito, e o ${data[currentId]
+  if (event.type === 'click') {
+    const confimarEditar = window.confirm(
+      `Clicou com o botão esquerdo, e o ${data[currentId]
         .getNome()
-        .toUpperCase()} será deletado`
+        .toUpperCase()} será carregado para edição`
     );
 
-    if (confirmarDelecao) {
-      deletUser(currentId)
-      viewController.update(data, new Usuario("", null, "", ""));
+    if (confimarEditar) {
+      viewController.updateForm(data[currentId])
+      submitState = submitType.UPDATE;
+      btnSub.innerText = "Update";
     }
+
+  } else if (event.type === "contextMenu") {
+    if (event.button == 2) {
+      const confirmarDelecao = window.confirm(
+        `Clicou com o botão direito, e o ${data[currentId]
+          .getNome()
+          .toUpperCase()} será deletado`
+      );
+
+      if (confirmarDelecao) {
+        deletUser(currentId)
+        viewController.update(data, new Usuario("", null, "", ""));
+      }
+    }
+
   }
-};
+}
+
+setEventsListeners = () => {
+  const form = document.getElementById("signForm");
+  form.addEventListener("submit", handleSubmit);
+  const userList = document.getElementById("users-result");
+  userList.addEventListener("click", handleClick);
+  userList.addEventListener("contextmenu", handleClick);
+}
+
 const controller = {
-  iniciar: () => {
+  run: () => {
     viewController.build();
-    const form = document.getElementById("signForm");
-    form.addEventListener("submit", handleSubmit);
-    const userList = document.getElementById("users-result");
-    userList.addEventListener("click", clickEsquerdo);
-    userList.addEventListener("contextmenu", clickDireito);
+    setEventsListeners();
     window.onload = () => {
       loadData();
-
     }
   },
 };
