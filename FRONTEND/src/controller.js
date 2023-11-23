@@ -29,20 +29,20 @@ const handleSubmit = (event) => {
     btnSub.innerText = "Save";
   }
   viewController.update(data, new Usuario("", null, "", ""));
-};
-
-
-//FUNÇÕES DE ADICIONAR, ATUALIZAR E REMOVER
+};//FUNÇÕES DE ADICIONAR, ATUALIZAR E REMOVER
 const addUser = (newUser) => {
   data.push(newUser);
+  dataService.salvarDados(data);
 };
 
 const updateUser = (index, userToUpdate) => {
   data[index] = userToUpdate;
+  dataService.salvarDados(data);
 };
 
 const deletUser = (index) => {
   data.splice(index, 1);
+  dataService.salvarDados(data);
 };
 //FIM FUNÇÕES CRUD
 
@@ -90,6 +90,7 @@ const controller = {
     userList.addEventListener("contextmenu", clickDireito);
     window.onload = () => {
       loadData();
+
     }
   },
 };
