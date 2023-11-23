@@ -1,9 +1,10 @@
-import { viewController } from "./view/viewController.js";
+import { view } from "./view/viewController.js";
 import { Usuario } from "./model/usuario.model.js";
 import { dataService } from "./api/data.service.js";
 
 let data = [];
 const submitType = { NEW: 0, UPDATE: 1 };
+const nullUser = new Usuario(null, null, null, null)
 let submitState = submitType.NEW;
 let currentId = null;
 
@@ -14,7 +15,11 @@ const loadData = async () => {
       new Usuario(usuario.nome, usuario.idade, usuario.login, usuario.senha)
   );
 
-  viewController.update(data, new Usuario("", null, "", ""))
+  view.update(data, new Usuario(null, null, null, null))
+}
+
+const getFormInputs = () =>{
+  return new Usuario(nome.value, idade.value, login.value, senha.value);
 }
 
 
@@ -28,7 +33,7 @@ const handleSubmit = (event) => {
     submitState = submitType.NEW;
     btnSub.innerText = "Save";
   }
-  viewController.update(data, new Usuario("", null, "", ""));
+  view.update(data, new Usuario(null, null, null, null));
 };//FUNÇÕES DE ADICIONAR, ATUALIZAR E REMOVER
 const addUser = (newUser) => {
   data.push(newUser);
@@ -56,7 +61,7 @@ const handleClick = (event) => {
     );
 
     if (confimarEditar) {
-      viewController.updateForm(data[currentId])
+      view.updateForm(data[currentId])
       submitState = submitType.UPDATE;
       btnSub.innerText = "Update";
     }
@@ -71,14 +76,14 @@ const handleClick = (event) => {
 
       if (confirmarDelecao) {
         deletUser(currentId)
-        viewController.update(data, new Usuario("", null, "", ""));
+        view.update(data, new Usuario(null, null, null, null));
       }
     }
 
   }
 }
 
-setEventsListeners = () => {
+const setEventsListeners = () => {
   const form = document.getElementById("signForm");
   form.addEventListener("submit", handleSubmit);
   const userList = document.getElementById("users-result");
@@ -88,7 +93,7 @@ setEventsListeners = () => {
 
 const controller = {
   run: () => {
-    viewController.build();
+    view.render();
     setEventsListeners();
     window.onload = () => {
       loadData();

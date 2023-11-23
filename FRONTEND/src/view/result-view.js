@@ -1,5 +1,5 @@
 const resultView = {
-  build: () => {
+  render: () => {
     const root = document.getElementById("root");
     const tableResult = document.createElement("table");
     tableResult.setAttribute("id", "resultTable");

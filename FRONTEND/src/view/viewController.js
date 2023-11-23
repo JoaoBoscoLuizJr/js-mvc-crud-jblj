@@ -1,10 +1,10 @@
 import { formNewUser } from "./form-new-user.js";
 import { resultView } from "./result-view.js";
 
-const viewController = {
-    build:()=>{
-        formNewUser.build();
-        resultView.build();
+const view = {
+    render:()=>{
+        formNewUser.render();
+        resultView.render();
     },
 
     update:(userArray, userToUpdate)=>{        
@@ -18,4 +18,4 @@ const viewController = {
     }
 }
 
-export {viewController}
+export {view}
