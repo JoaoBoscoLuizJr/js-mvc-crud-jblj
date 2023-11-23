@@ -1,5 +1,5 @@
-import { formNewUser } from "./form-new-user.js";
-import { resultView } from "./result-view.js";
+import { formNewUser } from "./form-components.js";
+import { resultView } from "./table-components.js";
 
 const view = {
     render:()=>{

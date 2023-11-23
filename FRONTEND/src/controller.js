@@ -1,4 +1,4 @@
-import { view } from "./view/viewController.js";
+import { view } from "./view/view.js";
 import { Usuario } from "./model/usuario.model.js";
 import { dataService } from "./api/data.service.js";
 
