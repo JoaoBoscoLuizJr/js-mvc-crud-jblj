@@ -16,4 +16,4 @@ Here I'm exploring more about MVC desing pattern and CRUD in JavaScript.
 
 4. then start with [Start](https://github.com/JoaoBoscoLuizJr/js-mvc-crud-jblj/releases/tag/v1.0.0)
 
-5. [Project]([Start](https://github.com/JoaoBoscoLuizJr/js-mvc-crud-jblj/releases/tag/)
+5. [Project](https://github.com/JoaoBoscoLuizJr/js-mvc-crud-jblj/releases/tag/projectV1.0.0)
