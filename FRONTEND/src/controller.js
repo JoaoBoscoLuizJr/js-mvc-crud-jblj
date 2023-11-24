@@ -18,14 +18,13 @@ const loadData = async () => {
   view.update(data, new Usuario(null, null, null, null))
 }
 
-const getFormInputs = () =>{
+const getFormInputs = () => {
   return new Usuario(nome.value, idade.value, login.value, senha.value);
 }
 
-
 const handleSubmit = (event) => {
   event.preventDefault();
-  const user = new Usuario(nome.value, idade.value, login.value, senha.value);
+  const user = getFormInputs();
   if (submitState == submitType.NEW) {
     addUser(user);
   } else if (submitState == submitType.UPDATE) {
@@ -35,6 +34,7 @@ const handleSubmit = (event) => {
   }
   view.update(data, new Usuario(null, null, null, null));
 };//FUNÇÕES DE ADICIONAR, ATUALIZAR E REMOVER
+
 const addUser = (newUser) => {
   data.push(newUser);
   dataService.salvarDados(data);
@@ -53,7 +53,7 @@ const deletUser = (index) => {
 
 const handleClick = (event) => {
   currentId = event.target.closest("tr").id.split("")[4];
-  if (event.type === 'click') {
+  if (event.type === "click") {
     const confimarEditar = window.confirm(
       `Clicou com o botão esquerdo, e o ${data[currentId]
         .getNome()
@@ -66,20 +66,18 @@ const handleClick = (event) => {
       btnSub.innerText = "Update";
     }
 
-  } else if (event.type === "contextMenu") {
-    if (event.button == 2) {
+  } else if (event.type === "contextmenu") {
+    if (event.button == 2) {     
       const confirmarDelecao = window.confirm(
         `Clicou com o botão direito, e o ${data[currentId]
           .getNome()
           .toUpperCase()} será deletado`
       );
-
       if (confirmarDelecao) {
         deletUser(currentId)
-        view.update(data, new Usuario(null, null, null, null));
+        view.update(data, nullUser);
       }
     }
-
   }
 }
 
