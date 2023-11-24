@@ -14,4 +14,4 @@ Here I'm exploring more about MVC desing pattern and CRUD in JavaScript.
 
 3. Install the necessary packages for the project to progress "nmp install"
 
-4. then start "npm start"
+4. then start with [Start](https://github.com/JoaoBoscoLuizJr/js-mvc-crud-jblj/releases/tag/v1.0.0)
