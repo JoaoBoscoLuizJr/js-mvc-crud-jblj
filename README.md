@@ -14,4 +14,4 @@ Here I'm exploring more about MVC desing pattern and CRUD in JavaScript.
 
 3. Install the necessary packages for the project to progress "nmp install"
 
-4. then start "npm start"
+4. then start with 
